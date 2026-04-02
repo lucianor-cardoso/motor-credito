@@ -1,6 +1,7 @@
-package com.financeiro.motor_credito.adapters.inbound;
+package com.financeiro.motor_credito.adaptadores.entrada;
 
 import com.financeiro.motor_credito.aplicacao.dto.ClienteDto;
+import com.financeiro.motor_credito.dominio.servico.ClienteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
+
+    private final ClienteService clienteService;
+
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
 
     /**
      * Endpoint para inserção de Clientes

@@ -9,6 +9,17 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Entidade Score
+ * A cada consulta ao score, serão atualizadas essas informações,
+ * o que seria um contato do cliente para uma análise de aprovação
+ * de crédito, seria feita uma atualização do salário seguida de
+ * uma consulta do Serasa, o retorno da informação geraria
+ * um registro de Score.
+ *
+ * @author Luciano R. Cardoso
+ * @since 2026-03-31
+ */
 @Getter
 @Setter
 @Entity
