@@ -1,7 +1,7 @@
-package com.financeiro.motor_credito.adaptadores.entrada;
+package com.financeiro.motor_credito.adapters.inbound;
 
-import com.financeiro.motor_credito.aplicacao.dto.ClienteDto;
-import com.financeiro.motor_credito.dominio.servico.ClienteService;
+import com.financeiro.motor_credito.application.dto.ClienteDto;
+import com.financeiro.motor_credito.domain.service.ClienteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

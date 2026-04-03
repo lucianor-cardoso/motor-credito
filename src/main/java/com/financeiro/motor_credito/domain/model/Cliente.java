@@ -1,4 +1,4 @@
-package com.financeiro.motor_credito.dominio.modelo;
+package com.financeiro.motor_credito.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

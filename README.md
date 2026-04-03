@@ -11,6 +11,47 @@ A aplicação será iniciada com regras simples e evoluindo com o tempo, à prin
 idade e renda, consultas ao score e restrições serão feitas através de mocks, que retornarão informações
 randômicas, mas a arquitetura ficará pronta para conexão com APIs oficiais.
 
+--- 
+
+## Atividades PDI:
+
+### Semana 28/03-01/04
+
+- [x] Geração do projeto
+- [x] Definição inicial da estrutura
+- [x] Definição dos domínios Cliente e Score
+- [x] Implementação de services e repositories (inicial)
+
+
+### Até 05/04:
+
+- [x] Refatorar nomes dos pacotes para inglês;
+- [ ] Finalizar service/repository de clientes;
+  - [ ] Avaliar criação do Cliente com Factory (ClienteDto -> Cliente)
+- [ ] Migração para PostgreSQL;
+
+
+### Semana 06-09/04:
+
+- [ ] Criar endpoint para execução das regras:
+  - [ ] recebe um cpf, recupera cadastro, executa regras e retorna 'positivo' ou 'negativo';
+- [ ] Início do desenvolvimento das regras (Chain of Responsability):
+  - [ ] Validar idade:
+    - idade < 18 retorna 'negativo';
+    - caso contrário retorna 'positivo';
+  - [ ] Validar renda:
+    - renda < $1.600,00 retorna 'negativo';
+    - caso contrário retorna 'positivo';
+
+
+### Próximas etapas:
+
+- [ ] Simular chamada ao Serasa:
+  - [ ] Retornar score aleatório, dependendo do valor, retornar 'com restrição';
+  - [ ] Gravar informação na tabela SCORE;
+- ???
+
+---
 
 2026-03
 

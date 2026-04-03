@@ -1,6 +1,6 @@
-package com.financeiro.motor_credito.dominio.modelo;
+package com.financeiro.motor_credito.domain.model;
 
-import com.financeiro.motor_credito.aplicacao.conversores.BooleanToStringConverter;
+import com.financeiro.motor_credito.application.converters.BooleanToStringConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

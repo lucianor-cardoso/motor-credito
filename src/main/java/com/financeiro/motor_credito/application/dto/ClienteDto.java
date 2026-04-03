@@ -1,4 +1,4 @@
-package com.financeiro.motor_credito.aplicacao.dto;
+package com.financeiro.motor_credito.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
-package com.financeiro.motor_credito.dominio.servico;
+package com.financeiro.motor_credito.domain.service;
 
-import com.financeiro.motor_credito.adaptadores.saida.ClienteRepository;
-import com.financeiro.motor_credito.dominio.modelo.Cliente;
+import com.financeiro.motor_credito.adapters.outbound.ClienteRepository;
+import com.financeiro.motor_credito.domain.model.Cliente;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

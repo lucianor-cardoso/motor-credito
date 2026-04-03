@@ -1,6 +1,6 @@
-package com.financeiro.motor_credito.adaptadores.saida;
+package com.financeiro.motor_credito.adapters.outbound;
 
-import com.financeiro.motor_credito.dominio.modelo.Cliente;
+import com.financeiro.motor_credito.domain.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
