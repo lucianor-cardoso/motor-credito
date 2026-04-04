@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.time.LocalDate;
 
 /**
- * Cliente DTO
+ * Client DTO
  *
  * @author Luciano R. Cardoso
  * @since 2026-03-31
@@ -15,10 +15,9 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDto {
+public class ClientDto {
     private Integer id;
-    private String nome;
-    private Integer idade;
+    private String name;
     private String cpf;
-    private BigDecimal salario;
+    private LocalDate birthDate;
 }
