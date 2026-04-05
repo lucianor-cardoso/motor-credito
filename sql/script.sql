@@ -36,15 +36,15 @@ COMMENT ON ROLE creditousr IS 'credito user for creditodb';
 --/////////////////////////////////////////////////////////////////////////
 -- Table: public.client
 
--- DROP TABLE IF EXISTS public.client;
+--DROP TABLE IF EXISTS public.client;
 
 CREATE TABLE IF NOT EXISTS public.client
 (
-    id_client bigint NOT NULL DEFAULT nextval('client_id_client_seq'::regclass),
+    client_id serial NOT NULL,
     client_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
     cpf character varying(11) COLLATE pg_catalog."default" NOT NULL,
     birth_date date NOT NULL,
-    CONSTRAINT pk_client_id_client PRIMARY KEY (id_client)
+    CONSTRAINT pk_client_client_id PRIMARY KEY (client_id)
 )
 
 TABLESPACE pg_default;
@@ -59,15 +59,15 @@ ALTER TABLE IF EXISTS public.client
 
 CREATE TABLE IF NOT EXISTS public.score
 (
-    id_score integer NOT NULL DEFAULT nextval('score_id_score_seq'::regclass),
-    id_client integer NOT NULL,
+    score_id serial NOT NULL,
+    client_id integer NOT NULL,
     score_points smallint NOT NULL,
     actual_income numeric(11,2),
     is_restrict "char" NOT NULL,
     seach_date timestamp without time zone NOT NULL,
-    CONSTRAINT pk_score_id_score PRIMARY KEY (id_score),
-    CONSTRAINT fk_score_client FOREIGN KEY (id_client)
-        REFERENCES public.client (id_client) MATCH SIMPLE
+    CONSTRAINT pk_score_score_id PRIMARY KEY (score_id),
+    CONSTRAINT fk_score_client FOREIGN KEY (client_id)
+        REFERENCES public.client (client_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )

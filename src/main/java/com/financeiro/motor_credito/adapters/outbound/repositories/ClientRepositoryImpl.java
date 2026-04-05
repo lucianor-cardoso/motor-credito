@@ -28,11 +28,12 @@ public class ClientRepositoryImpl implements ClientRepository {
     public Client save(Client client) {
         JpaClientEntity clientEntity = new JpaClientEntity(client);
         this.repository.save(clientEntity);
-        return new Client(clientEntity.getIdClient(),
+        return new Client(clientEntity.getClientId(),
                 clientEntity.getName(),
                 clientEntity.getCpf(),
                 clientEntity.getBirthDate());
     }
+/*
 
     @Override
     public Optional<Client> findById(Long id) {
@@ -40,19 +41,17 @@ public class ClientRepositoryImpl implements ClientRepository {
         // ajustar para mapper
         return clientEntity
                 .map(entity -> new Client(
-                        entity.getIdClient(),
+                        entity.getClientId(),
                         entity.getName(),
                         entity.getCpf(), entity.
-                        getBirthDate()))
-                .orElse(null);
+                        getBirthDate()));
     }
-
     @Override
     public List<Client> findAll() {
         return this.repository.findAll()
                 .stream()
                 .map(entity -> new Client(
-                        entity.getIdClient(),
+                        entity.getClientId(),
                         entity.getName(),
                         entity.getCpf(), entity.
                         getBirthDate()))
@@ -63,5 +62,5 @@ public class ClientRepositoryImpl implements ClientRepository {
     public void deleteById(Long id) {
         this.repository.deleteById(id);
     }
-
+*/
 }

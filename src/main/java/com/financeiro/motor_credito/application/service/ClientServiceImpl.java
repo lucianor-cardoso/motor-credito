@@ -1,6 +1,7 @@
 package com.financeiro.motor_credito.application.service;
 
-import com.financeiro.motor_credito.application.dto.ClientDto;
+import com.financeiro.motor_credito.application.dto.ClientRequestDto;
+import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.application.usecase.ClientUseCases;
 import com.financeiro.motor_credito.domain.client.Client;
 import com.financeiro.motor_credito.domain.client.ClientRepository;
@@ -24,14 +25,18 @@ public class ClientServiceImpl implements ClientUseCases {
     }
 
     @Override
-    public Client createClient(ClientDto clientDto) {
+    public ClientResponseDto createClient(ClientRequestDto clientDto) {
         Client newClient = new Client(clientDto.getName(), clientDto.getCpf(), clientDto.getBirthDate());
         newClient = repository.save(newClient);
-        return newClient;
+        return new ClientResponseDto(
+                newClient.getClientId(),
+                newClient.getName(),
+                newClient.getCpf(),
+                newClient.getBirthDate());
     }
-
+/*
     @Override
-    public Client getClient(Long id) {
+    public ClientResponseDto getClient(Long id) {
         return repository.findById(id);
     }
 
@@ -41,8 +46,10 @@ public class ClientServiceImpl implements ClientUseCases {
     }
 
     @Override
-    public List<Client> getClients() {
-        return repository.findAll();
+    public List<ClientResponseDto> getClients() {
+        List<Client> listClient = repository.findAll();
+        List<ClientResponseDto> listResponse = null;
+        return null;
     }
-
+*/
 }

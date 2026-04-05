@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 /**
- * Client DTO
+ * Client Request DTO
  *
  * @author Luciano R. Cardoso
  * @since 2026-03-31
@@ -15,8 +15,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientDto {
-    private Integer id;
+public class ClientRequestDto {
     private String name;
     private String cpf;
     private LocalDate birthDate;

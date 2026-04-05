@@ -1,12 +1,10 @@
 package com.financeiro.motor_credito.adapters.inbound.controllers;
 
-import com.financeiro.motor_credito.application.dto.ClientDto;
+import com.financeiro.motor_credito.application.dto.ClientRequestDto;
+import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.application.usecase.ClientUseCases;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Client Controller
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2026-03-31
  */
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/api/client")
 public class ClientController {
 
     private ClientUseCases useCases;
@@ -25,13 +23,10 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDto> addClient(ClientDto dto) {
-        useCases.createClient(dto);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<ClientResponseDto> addClient(@RequestBody ClientRequestDto dto) {
+        System.out.println(dto);
+        ClientResponseDto responseDto = useCases.createClient(dto);
+        return ResponseEntity.ok(responseDto);
     }
 
-    @GetMapping
-    public ResponseEntity<ClientDto> getClient(ClientDto dto) {
-        return useCases.getClient(dto.getId());
-    }
 }

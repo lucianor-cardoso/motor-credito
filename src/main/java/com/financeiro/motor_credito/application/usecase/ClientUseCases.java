@@ -1,7 +1,7 @@
 package com.financeiro.motor_credito.application.usecase;
 
-import com.financeiro.motor_credito.application.dto.ClientDto;
-import com.financeiro.motor_credito.domain.client.Client;
+import com.financeiro.motor_credito.application.dto.ClientRequestDto;
+import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 
 import java.util.List;
 
@@ -12,11 +12,9 @@ import java.util.List;
  * @since 2026-04-03
  */
 public interface ClientUseCases {
-    public Client createClient(ClientDto clientDto);
+    public ClientResponseDto createClient(ClientRequestDto clientDto);
 
-    public Client getClient(Long id);
-
-    public void deleteClient(Long id);
-
-    public List<Client> getClients();
+//    public ClientResponseDto getClient(Long id);
+//    public void deleteClient(Long id);
+//    public List<ClientResponseDto> getClients();
 }

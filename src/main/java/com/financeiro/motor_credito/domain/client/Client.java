@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class Client {
 
-    private Long idClient;
+    private Long clientId;
     private String name;
     private String cpf;
     private LocalDate birthDate;
@@ -20,7 +20,7 @@ public class Client {
     }
 
     public Client(Long idClient, String name, String cpf, LocalDate dateBirth) {
-        this.idClient = idClient;
+        this.clientId = idClient;
         this.name = name;
         this.cpf = cpf;
         this.birthDate = dateBirth;
@@ -32,12 +32,12 @@ public class Client {
         this.birthDate = birthDate;
     }
 
-    public Long getIdClient() {
-        return idClient;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setIdClient(Long idClient) {
-        this.idClient = idClient;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 
     public String getName() {
@@ -69,7 +69,7 @@ public class Client {
         if (o == null || getClass() != o.getClass()) return false;
 
         Client client = (Client) o;
-        return Objects.equals(idClient, client.idClient)
+        return Objects.equals(clientId, client.clientId)
                 && Objects.equals(name, client.name)
                 && Objects.equals(cpf, client.cpf)
                 && Objects.equals(birthDate, client.birthDate);
@@ -78,7 +78,7 @@ public class Client {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = Objects.hashCode(idClient);
+        int result = Objects.hashCode(clientId);
         result = prime * result + Objects.hashCode(name);
         result = prime * result + Objects.hashCode(cpf);
         result = prime * result + Objects.hashCode(birthDate);
@@ -88,7 +88,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client {" +
-                "idClient=" + idClient +
+                "idClient=" + clientId +
                 ", name='" + name + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", dateBirth=" + birthDate +

@@ -21,8 +21,8 @@ public class JpaClientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_client")
-    private Long idClient;
+    @Column(name = "client_id")
+    private Long clientId;
 
     @Column(name = "client_name", length = 100)
     private String name;
@@ -34,7 +34,7 @@ public class JpaClientEntity {
     private LocalDate birthDate;
 
     public JpaClientEntity(Client client) {
-        this.idClient = client.getIdClient();
+        this.clientId = client.getClientId();
         this.name = client.getName();
         this.cpf = client.getCpf();
         this.birthDate = client.getBirthDate();
@@ -45,7 +45,7 @@ public class JpaClientEntity {
         if (o == null || getClass() != o.getClass()) return false;
 
         JpaClientEntity that = (JpaClientEntity) o;
-        return Objects.equals(idClient, that.idClient)
+        return Objects.equals(clientId, that.clientId)
                 && Objects.equals(name, that.name)
                 && Objects.equals(cpf, that.cpf)
                 && Objects.equals(birthDate, that.birthDate);
@@ -54,7 +54,7 @@ public class JpaClientEntity {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = Objects.hashCode(idClient);
+        int result = Objects.hashCode(clientId);
         result = prime * result + Objects.hashCode(name);
         result = prime * result + Objects.hashCode(cpf);
         result = prime * result + Objects.hashCode(birthDate);
@@ -64,7 +64,7 @@ public class JpaClientEntity {
     @Override
     public String toString() {
         return "JpaClientEntity {" +
-                "idClient=" + idClient +
+                "idClient=" + clientId +
                 ", name='" + name + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", dateBirth=" + birthDate +
