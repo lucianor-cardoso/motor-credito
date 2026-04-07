@@ -8,6 +8,7 @@ import com.financeiro.motor_credito.domain.client.ClientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * ClientService
@@ -34,10 +35,27 @@ public class ClientServiceImpl implements ClientUseCases {
                 newClient.getCpf(),
                 newClient.getBirthDate());
     }
-/*
+
     @Override
     public ClientResponseDto getClient(Long id) {
-        return repository.findById(id);
+        Optional<Client> client = repository.findById(id);
+        return new ClientResponseDto(
+                client.get().getClientId(),
+                client.get().getName(),
+                client.get().getCpf(),
+                client.get().getBirthDate());
+    }
+
+    @Override
+    public List<ClientResponseDto> getClients() {
+        return repository.findAll()
+                .stream()
+                .map(client -> new ClientResponseDto(
+                        client.getClientId(),
+                        client.getName(),
+                        client.getCpf(),
+                        client.getBirthDate()))
+                .toList();
     }
 
     @Override
@@ -45,11 +63,4 @@ public class ClientServiceImpl implements ClientUseCases {
         repository.deleteById(id);
     }
 
-    @Override
-    public List<ClientResponseDto> getClients() {
-        List<Client> listClient = repository.findAll();
-        List<ClientResponseDto> listResponse = null;
-        return null;
-    }
-*/
 }

@@ -19,16 +19,16 @@ randômicas, mas a arquitetura ficará pronta para conexão com APIs oficiais.
 
 - [x] Geração do projeto
 - [x] Definição inicial da estrutura
-- [x] Definição dos domínios Cliente e Score
+- [x] Definição dos domínios Client e Score
 - [x] Implementação de services e repositories (inicial)
 
 
 ### Até 05/04:
 
 - [x] Refatorar nomes dos pacotes para inglês;
-- [ ] Finalizar service/repository de clientes;
+- [x] Finalizar service/repository de clientes;
   - [ ] Avaliar criação do Cliente com Factory (ClienteDto -> Cliente)
-- [ ] Migração para PostgreSQL;
+- [x] Migração para PostgreSQL;
 
 
 ### Semana 06-09/04:

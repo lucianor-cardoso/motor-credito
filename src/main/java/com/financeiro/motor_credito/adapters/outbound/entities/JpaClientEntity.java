@@ -33,6 +33,9 @@ public class JpaClientEntity {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    public JpaClientEntity() {
+    }
+
     public JpaClientEntity(Client client) {
         this.clientId = client.getClientId();
         this.name = client.getName();

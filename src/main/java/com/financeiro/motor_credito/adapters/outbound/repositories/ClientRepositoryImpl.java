@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * ClientRepository Implementation
@@ -33,7 +32,6 @@ public class ClientRepositoryImpl implements ClientRepository {
                 clientEntity.getCpf(),
                 clientEntity.getBirthDate());
     }
-/*
 
     @Override
     public Optional<Client> findById(Long id) {
@@ -43,9 +41,10 @@ public class ClientRepositoryImpl implements ClientRepository {
                 .map(entity -> new Client(
                         entity.getClientId(),
                         entity.getName(),
-                        entity.getCpf(), entity.
-                        getBirthDate()));
+                        entity.getCpf(),
+                        entity.getBirthDate()));
     }
+
     @Override
     public List<Client> findAll() {
         return this.repository.findAll()
@@ -55,12 +54,12 @@ public class ClientRepositoryImpl implements ClientRepository {
                         entity.getName(),
                         entity.getCpf(), entity.
                         getBirthDate()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public void deleteById(Long id) {
         this.repository.deleteById(id);
     }
-*/
+
 }

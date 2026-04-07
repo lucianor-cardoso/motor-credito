@@ -6,6 +6,8 @@ import com.financeiro.motor_credito.application.usecase.ClientUseCases;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Client Controller
  *
@@ -26,6 +28,19 @@ public class ClientController {
     public ResponseEntity<ClientResponseDto> addClient(@RequestBody ClientRequestDto dto) {
         System.out.println(dto);
         ClientResponseDto responseDto = useCases.createClient(dto);
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ClientResponseDto> getClient(@PathVariable("id") Long id) {
+        System.out.println("param: " + id);
+        ClientResponseDto responseDto = useCases.getClient(id);
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ClientResponseDto>> getClients() {
+        List<ClientResponseDto> responseDto = useCases.getClients();
         return ResponseEntity.ok(responseDto);
     }
 

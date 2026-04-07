@@ -14,7 +14,10 @@ import java.util.List;
 public interface ClientUseCases {
     public ClientResponseDto createClient(ClientRequestDto clientDto);
 
-//    public ClientResponseDto getClient(Long id);
-//    public void deleteClient(Long id);
-//    public List<ClientResponseDto> getClients();
+    public ClientResponseDto getClient(Long id);
+
+    public List<ClientResponseDto> getClients();
+
+    public void deleteClient(Long id);
+
 }
