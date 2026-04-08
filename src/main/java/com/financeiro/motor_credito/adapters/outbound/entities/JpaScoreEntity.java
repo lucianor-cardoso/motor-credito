@@ -32,6 +32,7 @@ public class JpaScoreEntity {
     private Integer idScore;
 
     @ManyToOne
+    @JoinColumn(name = "client_id")
     private JpaClientEntity client;
 
     @Column(name = "score_points")
@@ -46,6 +47,12 @@ public class JpaScoreEntity {
 
     @Column(name = "seach_date")
     private LocalDateTime searchDate;
+
+    @Column(name = "result")
+    private String result;
+
+    @Column(name = "result_description")
+    private String description;
 
     @Override
     public boolean equals(Object o) {

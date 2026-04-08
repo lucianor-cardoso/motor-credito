@@ -24,18 +24,22 @@ public class Score {
     private BigDecimal actualIncome;
     private boolean isRestrict;
     private LocalDateTime researchDate;
+    private String result;
+    private String description;
 
     public Score() {
     }
 
     public Score(Integer idScore, Client client, Integer scorePoints, BigDecimal actualIncome,
-                 boolean isRestrict, LocalDateTime researchDate) {
+                 boolean isRestrict, LocalDateTime researchDate, String result, String description) {
         this.idScore = idScore;
         this.client = client;
         this.scorePoints = scorePoints;
         this.actualIncome = actualIncome;
         this.isRestrict = isRestrict;
         this.researchDate = researchDate;
+        this.result = result;
+        this.description = description;
     }
 
     public Integer getIdScore() {
@@ -86,6 +90,22 @@ public class Score {
         this.researchDate = researchDate;
     }
 
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -93,34 +113,39 @@ public class Score {
         Score score = (Score) o;
         return isRestrict == score.isRestrict
                 && Objects.equals(idScore, score.idScore)
-                && Objects.equals(client, score.client)
+                && Objects.equals(client.getClientId(), score.client.getClientId())
                 && Objects.equals(scorePoints, score.scorePoints)
                 && Objects.equals(actualIncome, score.actualIncome)
-                && Objects.equals(researchDate, score.researchDate);
+                && Objects.equals(researchDate, score.researchDate)
+                && Objects.equals(result, score.result)
+                && Objects.equals(description, score.description);
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = Objects.hashCode(idScore);
-        result = prime * result + Objects.hashCode(client);
-        result = prime * result + Objects.hashCode(scorePoints);
-        result = prime * result + Objects.hashCode(actualIncome);
-        result = prime * result + Boolean.hashCode(isRestrict);
-        result = prime * result + Objects.hashCode(researchDate);
-        return result;
+        int result1 = Objects.hashCode(idScore);
+        result1 = prime * result1 + Objects.hashCode(client.getClientId());
+        result1 = prime * result1 + Objects.hashCode(scorePoints);
+        result1 = prime * result1 + Objects.hashCode(actualIncome);
+        result1 = prime * result1 + Boolean.hashCode(isRestrict);
+        result1 = prime * result1 + Objects.hashCode(researchDate);
+        result1 = prime * result1 + Objects.hashCode(result);
+        result1 = prime * result1 + Objects.hashCode(description);
+        return result1;
     }
 
     @Override
     public String toString() {
-        return "Score{" +
+        return "Score {" +
                 "idScore=" + idScore +
-                ", client=" + client +
+                ", clientId=" + client.getClientId() +
                 ", scorePoints=" + scorePoints +
                 ", actualIncome=" + actualIncome +
                 ", isRestrict=" + isRestrict +
                 ", researchDate=" + researchDate +
+                ", result='" + result + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
-
 }
