@@ -1,6 +1,5 @@
 package com.financeiro.motor_credito.adapters.outbound.entities;
 
-import com.financeiro.motor_credito.domain.client.Client;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,13 +33,7 @@ public class JpaClientEntity {
     private LocalDate birthDate;
 
     public JpaClientEntity() {
-    }
-
-    public JpaClientEntity(Client client) {
-        this.clientId = client.getClientId();
-        this.name = client.getName();
-        this.cpf = client.getCpf();
-        this.birthDate = client.getBirthDate();
+        // default constructor.
     }
 
     @Override

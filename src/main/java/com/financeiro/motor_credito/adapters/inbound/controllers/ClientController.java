@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/api/client")
 public class ClientController {
 
-    private ClientUseCases useCases;
+    private final ClientUseCases useCases;
 
     public ClientController(ClientUseCases useCases) {
         this.useCases = useCases;

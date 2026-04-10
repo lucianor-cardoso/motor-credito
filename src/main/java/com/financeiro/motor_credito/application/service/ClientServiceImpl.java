@@ -5,6 +5,8 @@ import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.application.usecase.ClientUseCases;
 import com.financeiro.motor_credito.domain.client.Client;
 import com.financeiro.motor_credito.domain.client.ClientRepository;
+import com.financeiro.motor_credito.utils.mappers.ClientMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,40 +23,31 @@ public class ClientServiceImpl implements ClientUseCases {
 
     private final ClientRepository repository;
 
-    public ClientServiceImpl(ClientRepository repository) {
+    private final ClientMapper mapper;
+
+    public ClientServiceImpl(ClientRepository repository, ClientMapper mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
     @Override
     public ClientResponseDto createClient(ClientRequestDto clientDto) {
-        Client newClient = new Client(clientDto.getName(), clientDto.getCpf(), clientDto.getBirthDate());
-        newClient = repository.save(newClient);
-        return new ClientResponseDto(
-                newClient.getClientId(),
-                newClient.getName(),
-                newClient.getCpf(),
-                newClient.getBirthDate());
+        Client newClient = mapper.dtoToClient(clientDto);
+        newClient = this.repository.save(newClient);
+        return mapper.clientToClientResponseDto(newClient);
     }
 
     @Override
     public ClientResponseDto getClient(Long id) {
-        Optional<Client> client = repository.findById(id);
-        return new ClientResponseDto(
-                client.get().getClientId(),
-                client.get().getName(),
-                client.get().getCpf(),
-                client.get().getBirthDate());
+        Optional<Client> client = this.repository.findById(id);
+        return mapper.clientToClientResponseDto(client.get());
     }
 
     @Override
     public List<ClientResponseDto> getClients() {
         return repository.findAll()
                 .stream()
-                .map(client -> new ClientResponseDto(
-                        client.getClientId(),
-                        client.getName(),
-                        client.getCpf(),
-                        client.getBirthDate()))
+                .map(mapper::clientToClientResponseDto)
                 .toList();
     }
 

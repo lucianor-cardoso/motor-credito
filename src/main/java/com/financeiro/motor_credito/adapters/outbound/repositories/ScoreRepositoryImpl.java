@@ -3,6 +3,7 @@ package com.financeiro.motor_credito.adapters.outbound.repositories;
 import com.financeiro.motor_credito.adapters.outbound.entities.JpaScoreEntity;
 import com.financeiro.motor_credito.domain.score.Score;
 import com.financeiro.motor_credito.domain.score.ScoreRepository;
+import com.financeiro.motor_credito.utils.mappers.ScoreMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,18 +19,22 @@ public class ScoreRepositoryImpl implements ScoreRepository {
 
     private final JpaScoreRepository repository;
 
-    public ScoreRepositoryImpl(JpaScoreRepository jpaScoreRepository) {
+    private final ScoreMapper mapper;
+
+    public ScoreRepositoryImpl(JpaScoreRepository jpaScoreRepository, ScoreMapper mapper) {
         this.repository = jpaScoreRepository;
+        this.mapper = mapper;
     }
 
     @Override
     public Score save(Score score) {
-        JpaScoreEntity jpaScoreEntity = new JpaScoreEntity();
-        return this.repository.save(jpaScoreEntity);
+        JpaScoreEntity jpaScoreEntity = mapper.scoreToJpaScore(score);
+        this.repository.save(jpaScoreEntity);
+        return mapper.jpaToScore(jpaScoreEntity);
     }
 
     @Override
     public List<Score> findAllByClientId(Long clientId) {
-        return this.repository.findAll();
+        return null; //this.repository.findAll();
     }
 }

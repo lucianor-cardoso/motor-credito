@@ -28,8 +28,8 @@ public class JpaScoreEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_score")
-    private Integer idScore;
+    @Column(name = "score_id")
+    private Integer scoreId;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -43,7 +43,7 @@ public class JpaScoreEntity {
 
     @Column(name = "is_restrict")
     @Convert(converter = BooleanToStringConverter.class)
-    private boolean isRestrict;
+    private Boolean isRestrict;
 
     @Column(name = "seach_date")
     private LocalDateTime searchDate;
@@ -54,13 +54,17 @@ public class JpaScoreEntity {
     @Column(name = "result_description")
     private String description;
 
+    public JpaScoreEntity() {
+        // default constructor.
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
 
         JpaScoreEntity that = (JpaScoreEntity) o;
-        return isRestrict == that.isRestrict
-                && Objects.equals(idScore, that.idScore)
+        return Objects.equals(isRestrict, that.isRestrict)
+                && Objects.equals(scoreId, that.scoreId)
                 && Objects.equals(client, that.client)
                 && Objects.equals(scorePoints, that.scorePoints)
                 && Objects.equals(actualIncome, that.actualIncome)
@@ -70,19 +74,19 @@ public class JpaScoreEntity {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = Objects.hashCode(idScore);
-        result = prime * result + Objects.hashCode(client);
-        result = prime * result + Objects.hashCode(scorePoints);
-        result = prime * result + Objects.hashCode(actualIncome);
-        result = prime * result + Boolean.hashCode(isRestrict);
-        result = prime * result + Objects.hashCode(searchDate);
-        return result;
+        int resultHash = Objects.hashCode(scoreId);
+        resultHash = prime * resultHash + Objects.hashCode(client);
+        resultHash = prime * resultHash + Objects.hashCode(scorePoints);
+        resultHash = prime * resultHash + Objects.hashCode(actualIncome);
+        resultHash = prime * resultHash + Boolean.hashCode(isRestrict);
+        resultHash = prime * resultHash + Objects.hashCode(searchDate);
+        return resultHash;
     }
 
     @Override
     public String toString() {
         return "JpaScoreEntity{" +
-                "idScore=" + idScore +
+                "idScore=" + scoreId +
                 ", client=" + client +
                 ", scorePoints=" + scorePoints +
                 ", actualIncome=" + actualIncome +

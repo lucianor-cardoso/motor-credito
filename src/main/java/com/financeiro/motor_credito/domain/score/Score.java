@@ -18,36 +18,36 @@ import java.util.Objects;
  * @since 2026-03-31
  */
 public class Score {
-    private Integer idScore;
+    private Integer scoreId;
     private Client client;
     private Integer scorePoints;
     private BigDecimal actualIncome;
-    private boolean isRestrict;
-    private LocalDateTime researchDate;
+    private Boolean isRestrict;
+    private LocalDateTime searchDate;
     private String result;
     private String description;
 
     public Score() {
     }
 
-    public Score(Integer idScore, Client client, Integer scorePoints, BigDecimal actualIncome,
-                 boolean isRestrict, LocalDateTime researchDate, String result, String description) {
-        this.idScore = idScore;
+    public Score(Integer scoreId, Client client, Integer scorePoints, BigDecimal actualIncome,
+                 Boolean isRestrict, LocalDateTime searchDate, String result, String description) {
+        this.scoreId = scoreId;
         this.client = client;
         this.scorePoints = scorePoints;
         this.actualIncome = actualIncome;
         this.isRestrict = isRestrict;
-        this.researchDate = researchDate;
+        this.searchDate = searchDate;
         this.result = result;
         this.description = description;
     }
 
-    public Integer getIdScore() {
-        return idScore;
+    public Integer getScoreId() {
+        return scoreId;
     }
 
-    public void setIdScore(Integer idScore) {
-        this.idScore = idScore;
+    public void setScoreId(Integer scoreId) {
+        this.scoreId = scoreId;
     }
 
     public Client getClient() {
@@ -74,20 +74,20 @@ public class Score {
         this.actualIncome = actualIncome;
     }
 
-    public boolean isRestrict() {
+    public Boolean getRestrict() {
         return isRestrict;
     }
 
-    public void setRestrict(boolean restrict) {
+    public void setRestrict(Boolean restrict) {
         isRestrict = restrict;
     }
 
-    public LocalDateTime getResearchDate() {
-        return researchDate;
+    public LocalDateTime getSearchDate() {
+        return searchDate;
     }
 
-    public void setResearchDate(LocalDateTime researchDate) {
-        this.researchDate = researchDate;
+    public void setSearchDate(LocalDateTime searchDate) {
+        this.searchDate = searchDate;
     }
 
     public String getResult() {
@@ -111,12 +111,12 @@ public class Score {
         if (o == null || getClass() != o.getClass()) return false;
 
         Score score = (Score) o;
-        return isRestrict == score.isRestrict
-                && Objects.equals(idScore, score.idScore)
+        return Objects.equals(isRestrict, score.isRestrict)
+                && Objects.equals(scoreId, score.scoreId)
                 && Objects.equals(client.getClientId(), score.client.getClientId())
                 && Objects.equals(scorePoints, score.scorePoints)
                 && Objects.equals(actualIncome, score.actualIncome)
-                && Objects.equals(researchDate, score.researchDate)
+                && Objects.equals(searchDate, score.searchDate)
                 && Objects.equals(result, score.result)
                 && Objects.equals(description, score.description);
     }
@@ -124,12 +124,12 @@ public class Score {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result1 = Objects.hashCode(idScore);
+        int result1 = Objects.hashCode(scoreId);
         result1 = prime * result1 + Objects.hashCode(client.getClientId());
         result1 = prime * result1 + Objects.hashCode(scorePoints);
         result1 = prime * result1 + Objects.hashCode(actualIncome);
         result1 = prime * result1 + Boolean.hashCode(isRestrict);
-        result1 = prime * result1 + Objects.hashCode(researchDate);
+        result1 = prime * result1 + Objects.hashCode(searchDate);
         result1 = prime * result1 + Objects.hashCode(result);
         result1 = prime * result1 + Objects.hashCode(description);
         return result1;
@@ -138,12 +138,12 @@ public class Score {
     @Override
     public String toString() {
         return "Score {" +
-                "idScore=" + idScore +
+                "idScore=" + scoreId +
                 ", clientId=" + client.getClientId() +
                 ", scorePoints=" + scorePoints +
                 ", actualIncome=" + actualIncome +
                 ", isRestrict=" + isRestrict +
-                ", researchDate=" + researchDate +
+                ", researchDate=" + searchDate +
                 ", result='" + result + '\'' +
                 ", description='" + description + '\'' +
                 '}';
