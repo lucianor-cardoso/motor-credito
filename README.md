@@ -53,6 +53,10 @@ randômicas, mas a arquitetura ficará pronta para conexão com APIs oficiais.
 
 ---
 
+## TODO
+- estudar implementação de migrações com flyway
+
+---
 2026-03
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
