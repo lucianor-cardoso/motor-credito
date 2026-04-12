@@ -3,10 +3,9 @@ package com.financeiro.motor_credito.application.service;
 import com.financeiro.motor_credito.application.dto.ClientRequestDto;
 import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.application.usecase.ClientUseCases;
-import com.financeiro.motor_credito.domain.client.Client;
-import com.financeiro.motor_credito.domain.client.ClientRepository;
+import com.financeiro.motor_credito.domain.model.Client;
+import com.financeiro.motor_credito.domain.repository.ClientRepository;
 import com.financeiro.motor_credito.utils.mappers.ClientMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

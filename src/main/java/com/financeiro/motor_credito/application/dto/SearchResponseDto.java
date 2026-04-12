@@ -1,9 +1,5 @@
 package com.financeiro.motor_credito.application.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  * Search Response Dto
  * The response returned to requests for loan,
@@ -15,12 +11,9 @@ import lombok.NoArgsConstructor;
  * @author Luciano R. Cardoso
  * @since 2026-04-07
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class SearchResponseDto {
-    private Integer scorePoints;
-    private boolean isRestrict;
-    private String result;
-    private String description;
+public record SearchResponseDto(
+        Integer scorePoints,
+        boolean isRestrict,
+        String result,
+        String description) {
 }

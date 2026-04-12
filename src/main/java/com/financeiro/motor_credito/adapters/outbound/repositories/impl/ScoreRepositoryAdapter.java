@@ -1,27 +1,29 @@
-package com.financeiro.motor_credito.adapters.outbound.repositories;
+package com.financeiro.motor_credito.adapters.outbound.repositories.impl;
 
 import com.financeiro.motor_credito.adapters.outbound.entities.JpaScoreEntity;
-import com.financeiro.motor_credito.domain.score.Score;
-import com.financeiro.motor_credito.domain.score.ScoreRepository;
+import com.financeiro.motor_credito.adapters.outbound.repositories.JpaScoreRepository;
+import com.financeiro.motor_credito.domain.model.Score;
+import com.financeiro.motor_credito.domain.repository.ScoreRepository;
 import com.financeiro.motor_credito.utils.mappers.ScoreMapper;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Score Repository
+ * - Adapter
  *
  * @author Luciano R. Cardoso
  * @since 2026-04-07
  */
-@Repository
-public class ScoreRepositoryImpl implements ScoreRepository {
+@Component
+public class ScoreRepositoryAdapter implements ScoreRepository {
 
     private final JpaScoreRepository repository;
 
     private final ScoreMapper mapper;
 
-    public ScoreRepositoryImpl(JpaScoreRepository jpaScoreRepository, ScoreMapper mapper) {
+    public ScoreRepositoryAdapter(JpaScoreRepository jpaScoreRepository, ScoreMapper mapper) {
         this.repository = jpaScoreRepository;
         this.mapper = mapper;
     }

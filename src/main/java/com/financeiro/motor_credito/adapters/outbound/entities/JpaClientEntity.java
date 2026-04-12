@@ -1,19 +1,16 @@
 package com.financeiro.motor_credito.adapters.outbound.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
 /**
  * JpaClientEntity
+ *
  * @author Luciano R. Cardoso
  * @since 2026-03-31
  */
-@Getter
-@Setter
 @Entity
 @Table(name = "client")
 public class JpaClientEntity {
@@ -34,6 +31,38 @@ public class JpaClientEntity {
 
     public JpaClientEntity() {
         // default constructor.
+    }
+
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     @Override

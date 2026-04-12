@@ -26,14 +26,12 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<ClientResponseDto> addClient(@RequestBody ClientRequestDto dto) {
-        System.out.println(dto);
         ClientResponseDto responseDto = useCases.createClient(dto);
         return ResponseEntity.ok(responseDto);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ClientResponseDto> getClient(@PathVariable("id") Long id) {
-        System.out.println("param: " + id);
         ClientResponseDto responseDto = useCases.getClient(id);
         return ResponseEntity.ok(responseDto);
     }

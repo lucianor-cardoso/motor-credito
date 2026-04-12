@@ -1,9 +1,5 @@
 package com.financeiro.motor_credito.application.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 
 /**
@@ -15,10 +11,7 @@ import java.math.BigDecimal;
  * @author Luciano R. Cardoso
  * @since 2026-04-07
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class SearchRequestDto {
-    private Long clientId;
-    private BigDecimal actualIncome;
+public record SearchRequestDto(
+        Long clientId,
+        BigDecimal actualIncome) {
 }

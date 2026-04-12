@@ -1,28 +1,29 @@
-package com.financeiro.motor_credito.adapters.outbound.repositories;
+package com.financeiro.motor_credito.adapters.outbound.repositories.impl;
 
 import com.financeiro.motor_credito.adapters.outbound.entities.JpaClientEntity;
-import com.financeiro.motor_credito.domain.client.Client;
-import com.financeiro.motor_credito.domain.client.ClientRepository;
+import com.financeiro.motor_credito.adapters.outbound.repositories.JpaClientRepository;
+import com.financeiro.motor_credito.domain.model.Client;
+import com.financeiro.motor_credito.domain.repository.ClientRepository;
 import com.financeiro.motor_credito.utils.mappers.ClientMapper;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
  * ClientRepository Implementation
+ * - Adapter
  *
  * @author Luciano R. Cardoso
  * @since 2026-04-04
  */
-@Repository
-public class ClientRepositoryImpl implements ClientRepository {
+@Component
+public class ClientRepositoryAdapter implements ClientRepository {
 
     private final JpaClientRepository repository;
-
     private final ClientMapper mapper;
 
-    public ClientRepositoryImpl(JpaClientRepository repository, ClientMapper mapper) {
+    public ClientRepositoryAdapter(JpaClientRepository repository, ClientMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
@@ -36,9 +37,8 @@ public class ClientRepositoryImpl implements ClientRepository {
 
     @Override
     public Optional<Client> findById(Long id) {
-        Optional<JpaClientEntity> clientEntity = this.repository.findById(id);
-        // ajustar para mapper
-        return clientEntity.map(mapper::jpaToClient);
+        return this.repository.findById(id)
+                .map(mapper::jpaToClient);
     }
 
     @Override

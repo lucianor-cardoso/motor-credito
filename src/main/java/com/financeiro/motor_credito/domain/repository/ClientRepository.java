@@ -1,10 +1,13 @@
-package com.financeiro.motor_credito.domain.client;
+package com.financeiro.motor_credito.domain.repository;
+
+import com.financeiro.motor_credito.domain.model.Client;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
  * Client Repository
+ * - Outbound Port
  *
  * @author Luciano R. Cardoso
  * @since 2026-04-04

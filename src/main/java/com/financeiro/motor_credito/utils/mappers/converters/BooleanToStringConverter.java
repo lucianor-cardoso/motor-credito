@@ -1,4 +1,4 @@
-package com.financeiro.motor_credito.application.converters;
+package com.financeiro.motor_credito.utils.mappers.converters;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

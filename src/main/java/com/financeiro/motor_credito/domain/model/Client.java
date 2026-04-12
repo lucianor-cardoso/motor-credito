@@ -1,4 +1,4 @@
-package com.financeiro.motor_credito.domain.client;
+package com.financeiro.motor_credito.domain.model;
 
 import java.time.LocalDate;
 import java.util.Objects;

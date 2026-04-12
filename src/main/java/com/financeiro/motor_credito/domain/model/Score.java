@@ -1,6 +1,4 @@
-package com.financeiro.motor_credito.domain.score;
-
-import com.financeiro.motor_credito.domain.client.Client;
+package com.financeiro.motor_credito.domain.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

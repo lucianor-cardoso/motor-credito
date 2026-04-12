@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
  * @author Luciano R. Cardoso
  * @since 2026-04-01
  */
-@Repository
 public interface JpaClientRepository extends JpaRepository<JpaClientEntity, Long> {
 
 }

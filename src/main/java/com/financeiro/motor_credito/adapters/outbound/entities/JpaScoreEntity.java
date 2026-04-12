@@ -1,9 +1,7 @@
 package com.financeiro.motor_credito.adapters.outbound.entities;
 
-import com.financeiro.motor_credito.application.converters.BooleanToStringConverter;
+import com.financeiro.motor_credito.utils.mappers.converters.BooleanToStringConverter;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,8 +18,6 @@ import java.util.Objects;
  * @author Luciano R. Cardoso
  * @since 2026-03-31
  */
-@Getter
-@Setter
 @Entity
 @Table(name = "score")
 public class JpaScoreEntity {
@@ -56,6 +52,70 @@ public class JpaScoreEntity {
 
     public JpaScoreEntity() {
         // default constructor.
+    }
+
+    public Integer getScoreId() {
+        return scoreId;
+    }
+
+    public void setScoreId(Integer scoreId) {
+        this.scoreId = scoreId;
+    }
+
+    public JpaClientEntity getClient() {
+        return client;
+    }
+
+    public void setClient(JpaClientEntity client) {
+        this.client = client;
+    }
+
+    public Integer getScorePoints() {
+        return scorePoints;
+    }
+
+    public void setScorePoints(Integer scorePoints) {
+        this.scorePoints = scorePoints;
+    }
+
+    public BigDecimal getActualIncome() {
+        return actualIncome;
+    }
+
+    public void setActualIncome(BigDecimal actualIncome) {
+        this.actualIncome = actualIncome;
+    }
+
+    public Boolean getRestrict() {
+        return isRestrict;
+    }
+
+    public void setRestrict(Boolean restrict) {
+        isRestrict = restrict;
+    }
+
+    public LocalDateTime getSearchDate() {
+        return searchDate;
+    }
+
+    public void setSearchDate(LocalDateTime searchDate) {
+        this.searchDate = searchDate;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
