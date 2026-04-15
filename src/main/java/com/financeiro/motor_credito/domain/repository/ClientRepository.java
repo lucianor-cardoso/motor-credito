@@ -13,6 +13,7 @@ import java.util.Optional;
  * @since 2026-04-04
  */
 public interface ClientRepository {
+
     Client save(Client client);
 
     Optional<Client> findById(Long id);

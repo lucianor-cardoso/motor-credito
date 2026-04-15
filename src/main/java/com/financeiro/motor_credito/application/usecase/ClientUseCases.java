@@ -12,6 +12,7 @@ import java.util.List;
  * @since 2026-04-03
  */
 public interface ClientUseCases {
+
     public ClientResponseDto createClient(ClientRequestDto clientDto);
 
     public ClientResponseDto getClient(Long id);

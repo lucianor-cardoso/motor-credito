@@ -3,7 +3,7 @@ package com.financeiro.motor_credito.application.dto;
 import java.math.BigDecimal;
 
 /**
- * Search Request Dto
+ * Analysis Request Dto
  * Every new request for loan, the client must provide
  * the last income, this will be stored at score table
  * with the last score point retrieved from Serasa
@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * @author Luciano R. Cardoso
  * @since 2026-04-07
  */
-public record SearchRequestDto(
+public record AnalysisRequestDto(
         Long clientId,
         BigDecimal actualIncome) {
 }

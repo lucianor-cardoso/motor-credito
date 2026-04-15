@@ -1,6 +1,6 @@
 package com.financeiro.motor_credito.adapters.outbound.entities;
 
-import com.financeiro.motor_credito.utils.mappers.converters.BooleanToStringConverter;
+import com.financeiro.motor_credito.utils.converters.BooleanToStringConverter;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;

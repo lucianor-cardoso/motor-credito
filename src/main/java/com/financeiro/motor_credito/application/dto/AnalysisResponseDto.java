@@ -1,7 +1,7 @@
 package com.financeiro.motor_credito.application.dto;
 
 /**
- * Search Response Dto
+ * Analysis Response Dto
  * The response returned to requests for loan,
  * the response will be composed of last score point,
  * the restriction if exists and the result, positive
@@ -11,7 +11,7 @@ package com.financeiro.motor_credito.application.dto;
  * @author Luciano R. Cardoso
  * @since 2026-04-07
  */
-public record SearchResponseDto(
+public record AnalysisResponseDto(
         Integer scorePoints,
         boolean isRestrict,
         String result,

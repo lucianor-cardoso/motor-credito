@@ -16,6 +16,7 @@ import java.util.Objects;
  * @since 2026-03-31
  */
 public class Score {
+
     private Integer scoreId;
     private Client client;
     private Integer scorePoints;

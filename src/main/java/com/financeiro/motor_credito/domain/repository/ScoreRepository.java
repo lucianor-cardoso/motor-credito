@@ -12,7 +12,9 @@ import java.util.List;
  * @since 2026-04-07
  */
 public interface ScoreRepository {
+
     Score save(Score score);
 
     List<Score> findAllByClientId(Long clientId);
+
 }
