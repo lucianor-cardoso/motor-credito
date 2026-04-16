@@ -20,12 +20,13 @@ public class CreditAnalysisController {
 
     private final CreditAnalysisUseCases creditAnalysisUseCases;
 
-    public CreditAnalysisController(CreditAnalysisUseCases searchUseCases) {
-        this.creditAnalysisUseCases = searchUseCases;
+    public CreditAnalysisController(CreditAnalysisUseCases creditAnalysisUseCases) {
+        this.creditAnalysisUseCases = creditAnalysisUseCases;
     }
 
     @PostMapping
     public ResponseEntity<AnalysisResponseDto> doSearch(@RequestBody AnalysisRequestDto requestDto) {
+        System.out.println("analysis request: " + requestDto);
         AnalysisResponseDto response = creditAnalysisUseCases.analyze(requestDto);
         return ResponseEntity.ok(response);
     }

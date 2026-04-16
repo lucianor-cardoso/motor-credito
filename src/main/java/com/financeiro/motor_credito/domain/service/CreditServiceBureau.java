@@ -1,6 +1,6 @@
 package com.financeiro.motor_credito.domain.service;
 
-import com.financeiro.motor_credito.domain.model.CreditData;
+import com.financeiro.motor_credito.application.dto.CreditDataDto;
 
 /**
  * Credit Service Bureau
@@ -10,6 +10,6 @@ import com.financeiro.motor_credito.domain.model.CreditData;
  */
 public interface CreditServiceBureau {
 
-    CreditData scoreSearch(String cpf);
+    CreditDataDto scoreSearch(String cpf);
 
 }

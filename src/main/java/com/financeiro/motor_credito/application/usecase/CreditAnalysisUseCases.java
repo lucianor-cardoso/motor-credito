@@ -12,7 +12,9 @@ import java.util.List;
  * @since 2026-04-07
  */
 public interface CreditAnalysisUseCases {
+
     public AnalysisResponseDto analyze(AnalysisRequestDto data);
 
     public List<AnalysisResponseDto> getAnalysis(Long clientId);
+
 }

@@ -59,12 +59,14 @@ ALTER TABLE IF EXISTS public.client
 
 CREATE TABLE IF NOT EXISTS public.score
 (
-    score_id serial NOT NULL,
+    score_id integer NOT NULL DEFAULT nextval('score_score_id_seq'::regclass),
     client_id integer NOT NULL,
     score_points smallint NOT NULL,
     actual_income numeric(11,2),
     is_restrict "char" NOT NULL,
     seach_date timestamp without time zone NOT NULL,
+    result character varying(30) COLLATE pg_catalog."default",
+    result_description character varying(200) COLLATE pg_catalog."default",
     CONSTRAINT pk_score_score_id PRIMARY KEY (score_id),
     CONSTRAINT fk_score_client FOREIGN KEY (client_id)
         REFERENCES public.client (client_id) MATCH SIMPLE
@@ -85,5 +87,6 @@ COMMENT ON TABLE public.score
 
 grant SELECT, UPDATE, DELETE, INSERT ON public.client TO creditousr;
 grant SELECT, UPDATE, DELETE, INSERT ON public.score TO creditousr;
+grant USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO creditousr;
 
 --/////////////////////////////////////////////////////////////////////////

@@ -1,8 +1,11 @@
 package com.financeiro.motor_credito.adapters.outbound;
 
-import com.financeiro.motor_credito.domain.model.CreditData;
+import com.financeiro.motor_credito.application.dto.CreditDataDto;
 import com.financeiro.motor_credito.domain.service.CreditServiceBureau;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+import java.util.Random;
 
 /**
  * Serasa Adapter
@@ -12,8 +15,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SerasaAdapter implements CreditServiceBureau {
+
     @Override
-    public CreditData scoreSearch(String cpf) {
-        return null;
+    public CreditDataDto scoreSearch(String cpf) {
+        Random random = new Random();
+        Integer score = random.nextInt(1000);
+        boolean isRestrict = random.nextBoolean();
+        return CreditDataDto.builder()
+                .score(score)
+                .isRestrict(isRestrict)
+                .searchDate(LocalDateTime.now())
+                .build();
     }
+
 }

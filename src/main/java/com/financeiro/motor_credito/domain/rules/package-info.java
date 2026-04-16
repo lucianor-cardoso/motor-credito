@@ -1,1 +1,0 @@
-package com.financeiro.motor_credito.domain.rules;

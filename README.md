@@ -33,23 +33,29 @@ randômicas, mas a arquitetura ficará pronta para conexão com APIs oficiais.
 
 ### Semana 06-09/04:
 
-- [ ] Criar endpoint para execução das regras:
-  - [ ] recebe um cpf, recupera cadastro, executa regras e retorna 'positivo' ou 'negativo';
-- [ ] Início do desenvolvimento das regras (Chain of Responsability):
-  - [ ] Validar idade:
+- [x] Criar endpoint para execução das regras:
+  - [x] recebe um cpf, recupera cadastro, executa regras e retorna 'positivo' ou 'negativo';
+- [x] Início do desenvolvimento das regras (Chain of Responsability):
+  - [x] Validar idade:
     - idade < 18 retorna 'negativo';
     - caso contrário retorna 'positivo';
-  - [ ] Validar renda:
+  - [x] Validar renda:
     - renda < $1.600,00 retorna 'negativo';
     - caso contrário retorna 'positivo';
+- Concluído em 16/04/2026
 
+### Semana 10-16/04:
+
+- [x] Simular chamada ao Serasa:
+  - [x] Retornar score aleatório;
+  - [x] Retornar 'com restrição' aleatório;
+  - [x] Gravar informação na tabela SCORE;
+- [x] Utilização de record para DTOs;
+- Concluído em 16/04/2026
 
 ### Próximas etapas:
-
-- [ ] Simular chamada ao Serasa:
-  - [ ] Retornar score aleatório, dependendo do valor, retornar 'com restrição';
-  - [ ] Gravar informação na tabela SCORE;
-- ???
+- [ ] Testes unitários;
+- [ ] Revisar arquitetura;
 
 ---
 
