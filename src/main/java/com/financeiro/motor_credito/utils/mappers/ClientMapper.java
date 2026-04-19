@@ -1,6 +1,7 @@
 package com.financeiro.motor_credito.utils.mappers;
 
 import com.financeiro.motor_credito.adapters.outbound.entities.JpaClientEntity;
+import com.financeiro.motor_credito.adapters.outbound.repositories.JpaClientRepository;
 import com.financeiro.motor_credito.application.dto.ClientRequestDto;
 import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.domain.model.Client;
@@ -46,4 +47,9 @@ public interface ClientMapper {
     @Mapping(source = "client.birthDate", target = "birthDate")
     JpaClientEntity clientToJpa(Client client);
 
+    @Mapping(target = "clientId", ignore = true)
+    @Mapping(source = "dto.name", target = "name")
+    @Mapping(source = "dto.cpf", target = "cpf")
+    @Mapping(source = "dto.birthDate", target = "birthDate")
+    JpaClientEntity dtoToJpa(ClientRequestDto dto);
 }

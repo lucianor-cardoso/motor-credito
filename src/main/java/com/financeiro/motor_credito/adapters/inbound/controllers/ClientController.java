@@ -3,6 +3,8 @@ package com.financeiro.motor_credito.adapters.inbound.controllers;
 import com.financeiro.motor_credito.application.dto.ClientRequestDto;
 import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.application.usecase.ClientUseCases;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,8 +33,13 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientResponseDto> getClient(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getClient(@PathVariable("id") Long id) {
         ClientResponseDto responseDto = useCases.getClient(id);
+        if (responseDto == null) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("Cliente não encontrado.");
+        }
         return ResponseEntity.ok(responseDto);
     }
 

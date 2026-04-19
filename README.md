@@ -54,8 +54,10 @@ randômicas, mas a arquitetura ficará pronta para conexão com APIs oficiais.
 - Concluído em 16/04/2026
 
 ### Próximas etapas:
+- [x] Migração para HSQLDB com persistência em arquivo;
 - [ ] Testes unitários;
-- [ ] Revisar arquitetura;
+- [x] Revisar arquitetura;
+  - [x] Ajustes nos repositórios e implementações de domínio Cliente e Score;
 
 ---
 

@@ -1,10 +1,10 @@
 package com.financeiro.motor_credito.application.service;
 
+import com.financeiro.motor_credito.adapters.outbound.entities.JpaClientEntity;
+import com.financeiro.motor_credito.adapters.outbound.repositories.JpaClientRepository;
 import com.financeiro.motor_credito.application.dto.ClientRequestDto;
 import com.financeiro.motor_credito.application.dto.ClientResponseDto;
 import com.financeiro.motor_credito.application.usecase.ClientUseCases;
-import com.financeiro.motor_credito.domain.model.Client;
-import com.financeiro.motor_credito.domain.repository.ClientRepository;
 import com.financeiro.motor_credito.utils.mappers.ClientMapper;
 import org.springframework.stereotype.Service;
 
@@ -20,32 +20,32 @@ import java.util.Optional;
 @Service
 public class ClientApplicationService implements ClientUseCases {
 
-    private final ClientRepository repository;
+    private final JpaClientRepository repository;
     private final ClientMapper mapper;
 
-    public ClientApplicationService(ClientRepository repository, ClientMapper mapper) {
+    public ClientApplicationService(JpaClientRepository repository, ClientMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
 
     @Override
     public ClientResponseDto createClient(ClientRequestDto clientDto) {
-        Client newClient = mapper.dtoToClient(clientDto);
+        JpaClientEntity newClient = mapper.dtoToJpa(clientDto);
         newClient = this.repository.save(newClient);
-        return mapper.clientToClientResponseDto(newClient);
+        return mapper.jpaToClientResponseDto(newClient);
     }
 
     @Override
     public ClientResponseDto getClient(Long id) {
-        Optional<Client> client = this.repository.findById(id);
-        return mapper.clientToClientResponseDto(client.get());
+        Optional<JpaClientEntity> client = this.repository.findById(id);
+        return mapper.jpaToClientResponseDto(client.orElse(null));
     }
 
     @Override
     public List<ClientResponseDto> getClients() {
         return repository.findAll()
                 .stream()
-                .map(mapper::clientToClientResponseDto)
+                .map(mapper::jpaToClientResponseDto)
                 .toList();
     }
 
